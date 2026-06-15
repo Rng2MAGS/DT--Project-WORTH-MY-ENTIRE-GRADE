@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dydpswsiefbxk"]
+
+[sub_resource type="GDScript" id="GDScript_4icm7"]
+resource_name = "ship"
+script/source = "extends CharacterBody2D
+
+
+const SPEED = 300.0
+const JUMP_VELOCITY = -400.0
+
+
+func _physics_process(_delta: float) -> void:
+	
+	# Get the input direction and handle the movement/deceleration.
+	var directiony := Input.get_axis(\"ui_up\", \"ui_down\")
+	if directiony:
+		velocity.y = directiony * SPEED
+	else:
+		velocity.y = move_toward(velocity.x, 0, SPEED)
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var directionx := Input.get_axis(\"ui_left\", \"ui_right\")
+	if directionx:
+		velocity.x = directionx * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	move_and_slide()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4icm7"]
+size = Vector2(40, 40)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1860692798]
+script = SubResource("GDScript_4icm7")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1006057726]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1937133221]
+shape = SubResource("RectangleShape2D_4icm7")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=975228800]
+
+[node name="Marker2D" type="Marker2D" parent="Node2D" unique_id=543650113]

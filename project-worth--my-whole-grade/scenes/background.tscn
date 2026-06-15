@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bjhokq7vmeirh"]
+
+[ext_resource type="PackedScene" uid="uid://dydpswsiefbxk" path="res://scenes/ship.tscn" id="1_bkp1e"]
+
+[sub_resource type="GDScript" id="GDScript_bkp1e"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oabld"]
+size = Vector2(817, 59)
+
+[node name="Node2D" type="Node2D" unique_id=402681183]
+script = SubResource("GDScript_bkp1e")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=268071946]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.09923177, 0.09923177, 0.09923177, 1)
+
+[node name="CharacterBody2D" parent="." unique_id=1860692798 instance=ExtResource("1_bkp1e")]
+position = Vector2(380, 226)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=256059582]
+position = Vector2(476, 505)
+
+[node name="ColorRect2" type="ColorRect" parent="Area2D" unique_id=347410747]
+offset_left = -409.0
+offset_top = -29.0
+offset_right = 408.0
+offset_bottom = 30.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1442427637]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_oabld")
