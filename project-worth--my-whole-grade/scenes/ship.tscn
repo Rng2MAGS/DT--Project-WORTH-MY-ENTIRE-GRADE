@@ -25,6 +25,30 @@ func _physics_process(_delta: float) -> void:
 	#Prevent excess speed
 	velocity = speed * direction.normalized()
 	move_and_slide()
+	
+	
+	
+func _bullet_timer() -> void:
+	can_shoot = true
+	
+	
+	
+func _shooting() -> void:
+	var shoot = Input.get(\"ui_accept\")
+	if can_shoot == true:
+		
+		can_shoot = false
+		
+	pass # Replace with function body.
+	
+	
+	
+	
+	
+	
+	
+	
+	
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4icm7"]
@@ -46,3 +70,10 @@ shape = SubResource("RectangleShape2D_4icm7")
 [node name="Node2D" type="Node2D" parent="." unique_id=975228800]
 
 [node name="Marker2D" type="Marker2D" parent="Node2D" unique_id=543650113]
+position = Vector2(25, 0)
+
+[node name="Timer" type="Timer" parent="." unique_id=63954017]
+wait_time = 0.2
+
+[connection signal="ready" from="." to="." method="_shooting"]
+[connection signal="timeout" from="Timer" to="." method="_bullet_timer"]
