@@ -4,18 +4,12 @@
 script/source = "extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
 
+const SPEED = 300.0
+var player_health: int = 5
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
 
-	# Handle jump.
-	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -29,31 +23,31 @@ func _physics_process(delta: float) -> void:
 
 
 func _player_dmg(body: Node2D) -> void:
-	pass # Replace with function body.
+	player_health -= 1
 "
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0md28"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d0c22"]
-size = Vector2(34, 34)
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0md28"]
+size = Vector2(24, 24)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1234631901]
 script = SubResource("GDScript_0md28")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1658437851]
-shape = SubResource("RectangleShape2D_0md28")
-
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2099132891]
-offset_left = -17.0
-offset_top = -17.0
-offset_right = 17.0
-offset_bottom = 17.0
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
 color = Color(0.6814234, 0.6814234, 0.6814234, 1)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1477075386]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=333603966]
 shape = SubResource("RectangleShape2D_d0c22")
-disabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1658437851]
+shape = SubResource("RectangleShape2D_0md28")
 
 [connection signal="body_entered" from="Area2D" to="." method="_player_dmg"]

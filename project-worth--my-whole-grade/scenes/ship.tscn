@@ -12,7 +12,7 @@ var can_shoot: bool = true
 @export var pivot: Node2D
 @export var bullet_spawn: Marker2D
 @export var bullet_timer: Timer
-@export var health_bar: ProgressBar
+@export var player_health: int
 
 
 func _physics_process(_delta: float) -> void:
@@ -62,18 +62,6 @@ radius = 20.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1860692798 groups=["Ship"]]
 script = SubResource("GDScript_4icm7")
-
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1163756310]
-modulate = Color(18.892157, 18.892157, 18.892157, 1)
-self_modulate = Color(0, 1, 0, 1)
-offset_left = -241.0
-offset_top = -136.0
-offset_right = -37.0
-offset_bottom = -109.0
-max_value = 5.0
-step = 1.0
-value = 2.0
-show_percentage = false
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1006057726]
 offset_left = -20.0

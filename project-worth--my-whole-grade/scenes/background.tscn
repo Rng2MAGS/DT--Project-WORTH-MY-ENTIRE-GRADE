@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bjhokq7vmeirh"]
 
 [ext_resource type="PackedScene" uid="uid://dydpswsiefbxk" path="res://scenes/ship.tscn" id="1_bkp1e"]
+[ext_resource type="PackedScene" uid="uid://b6ajvrgrtgnny" path="res://scenes/asteroid.tscn" id="2_y0upk"]
 
 [sub_resource type="GDScript" id="GDScript_bkp1e"]
 script/source = "extends Node2D
@@ -31,7 +32,7 @@ offset_bottom = 648.0
 color = Color(0.09923177, 0.09923177, 0.09923177, 1)
 
 [node name="CharacterBody2D" parent="." unique_id=1860692798 instance=ExtResource("1_bkp1e")]
-position = Vector2(380, 226)
+position = Vector2(322, 229)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1488988286]
 
@@ -55,3 +56,6 @@ shape = SubResource("RectangleShape2D_bkp1e")
 offset_top = 581.0
 offset_right = 118.0
 offset_bottom = 648.0
+
+[node name="CharacterBody2D2" parent="." unique_id=1234631901 instance=ExtResource("2_y0upk")]
+position = Vector2(766, 152)
