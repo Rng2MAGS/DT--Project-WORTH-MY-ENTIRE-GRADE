@@ -8,7 +8,7 @@ size = Vector2(32, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0md28"]
 size = Vector2(24, 24)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1234631901]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1234631901 groups=["asteroid"]]
 script = ExtResource("1_akfqu")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2099132891]
