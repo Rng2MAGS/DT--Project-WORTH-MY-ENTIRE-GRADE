@@ -1,30 +1,6 @@
 [gd_scene format=3 uid="uid://b6ajvrgrtgnny"]
 
-[sub_resource type="GDScript" id="GDScript_0md28"]
-script/source = "extends CharacterBody2D
-
-
-
-const SPEED = 300.0
-@export var player_health: int = 5
-
-func _physics_process(delta: float) -> void:
-
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis(\"ui_left\", \"ui_right\")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-	move_and_slide()
-
-
-func _player_dmg(body: Node2D) -> void:
-	player_health -= 1
-"
+[ext_resource type="Script" uid="uid://blfnii2yshklg" path="res://scripts/asteroid.gd" id="1_akfqu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d0c22"]
 size = Vector2(32, 32)
@@ -33,7 +9,7 @@ size = Vector2(32, 32)
 size = Vector2(24, 24)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1234631901]
-script = SubResource("GDScript_0md28")
+script = ExtResource("1_akfqu")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2099132891]
 offset_left = -12.0

@@ -13,11 +13,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	move_local_x(speed * delta)
-
+	
 
 func _bullet_land(body: Node2D) -> void:
 	if body.is_in_group(\"asteroid\"):
 		body.take_damage()
+		queue_free()
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtl8c"]

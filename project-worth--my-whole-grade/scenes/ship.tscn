@@ -1,36 +1,39 @@
 [gd_scene format=3 uid="uid://dydpswsiefbxk"]
 
+[ext_resource type="PackedScene" uid="uid://c06ml87rwlagb" path="res://scenes/bullet.tscn" id="1_q631a"]
+
 [sub_resource type="GDScript" id="GDScript_4icm7"]
 resource_name = "ship"
 script/source = "extends CharacterBody2D
 
 
 var speed = 500.0
+var health: int = 20
 var can_shoot: bool = true
+var bullet_speed: int = 800
 
 
 @export var pivot: Node2D
 @export var bullet_spawn: Marker2D
+@export var bullet_scene: PackedScene
 @export var bullet_timer: Timer
-@export var player_health: int
+@export var player_health: ProgressBar
 
 
 func _physics_process(_delta: float) -> void:
 	# Define direction
 	var direction: Vector2 = Vector2(0.0, 0.0)
 	# Get input direction and set the characters' velocity
-	direction.y = Input.get_axis(\"ui_up\", \"ui_down\")
-	if direction.y:
-		velocity.y = direction.y * speed
-	else:
-		velocity.y = move_toward(velocity.x, 0, speed)
-	direction.x = Input.get_axis(\"ui_left\", \"ui_right\")
-	if direction.x:
-		velocity.x = direction.x * speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-	#Prevent excess speed
+	direction.x = Input.get_axis(\"ui_player_left\",\"ui_player_right\")
+	direction.y = Input.get_axis(\"ui_player_up\",\"ui_player_down\")
+		#Prevent excess speed
 	velocity = speed * direction.normalized()
+	
+	pivot.look_at(get_global_mouse_position())
+	
+	if Input .is_action_pressed(\"ui_shoot\") and can_shoot:
+		_shooting()
+	
 	move_and_slide()
 	
 	
@@ -40,13 +43,19 @@ func _bullet_timer() -> void:
 	
 	
 func _shooting() -> void:
-	var shoot = Input.get(\"ui_accept\")
-	if can_shoot == true:
-		
-		can_shoot = false
-		
-	pass # Replace with function body.
-	
+	var bullet = bullet_scene.instantiate()
+	bullet.rotation = pivot.rotation
+	bullet.global_position = bullet_spawn.global_position
+	add_sibling(bullet)
+	can_shoot = false
+	bullet_timer.start()
+
+func take_damage() -> void:
+	if health > 0:
+		health -= 1
+		player_health.value = health
+	else:
+		get_tree().call_deferred(\"reload_current_scene\")
 	
 	
 	
@@ -57,23 +66,57 @@ func _shooting() -> void:
 	
 "
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_03b2l"]
+bg_color = Color(1, 0.08780869, 0.13479945, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q631a"]
+bg_color = Color(0.14901961, 1, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 20
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_03b2l"]
 radius = 20.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1860692798 groups=["Ship"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1860692798 node_paths=PackedStringArray("pivot", "bullet_spawn", "bullet_timer", "player_health") groups=["Ship"]]
+motion_mode = 1
 script = SubResource("GDScript_4icm7")
+pivot = NodePath("Node2D")
+bullet_spawn = NodePath("Node2D/Marker2D")
+bullet_scene = ExtResource("1_q631a")
+bullet_timer = NodePath("Timer")
+player_health = NodePath("ProgressBar")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1006057726]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-metadata/_edit_use_anchors_ = true
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1051990565]
+offset_left = 36.0
+offset_top = -207.0
+offset_right = 240.0
+offset_bottom = -180.0
+theme_override_styles/background = SubResource("StyleBoxFlat_03b2l")
+theme_override_styles/fill = SubResource("StyleBoxFlat_q631a")
+max_value = 5.0
+step = 1.0
+value = 2.0
+show_percentage = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1937133221]
 shape = SubResource("CircleShape2D_03b2l")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=975228800]
+
+[node name="ColorRect" type="ColorRect" parent="Node2D" unique_id=1006057726]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Marker2D" type="Marker2D" parent="Node2D" unique_id=543650113]
 position = Vector2(25, 0)
@@ -81,5 +124,4 @@ position = Vector2(25, 0)
 [node name="Timer" type="Timer" parent="." unique_id=63954017]
 wait_time = 0.2
 
-[connection signal="ready" from="." to="." method="_shooting"]
 [connection signal="timeout" from="Timer" to="." method="_bullet_timer"]
