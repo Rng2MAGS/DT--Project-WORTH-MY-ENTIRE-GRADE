@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dydpswsiefbxk"]
 
-[ext_resource type="PackedScene" uid="uid://c06ml87rwlagb" path="res://scenes/bullet.tscn" id="1_q631a"]
+[ext_resource type="PackedScene" uid="uid://dtsvyufeqn2qv" path="res://bullet2.tscn" id="1_q631a"]
 
 [sub_resource type="GDScript" id="GDScript_4icm7"]
 resource_name = "ship"
@@ -82,8 +82,8 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 corner_detail = 20
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_03b2l"]
-radius = 20.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q631a"]
+size = Vector2(40, 40)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1860692798 node_paths=PackedStringArray("pivot", "bullet_spawn", "bullet_timer", "player_health") groups=["Ship"]]
 motion_mode = 1
@@ -106,9 +106,6 @@ step = 1.0
 value = 2.0
 show_percentage = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1937133221]
-shape = SubResource("CircleShape2D_03b2l")
-
 [node name="Node2D" type="Node2D" parent="." unique_id=975228800]
 
 [node name="ColorRect" type="ColorRect" parent="Node2D" unique_id=1006057726]
@@ -120,6 +117,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Marker2D" type="Marker2D" parent="Node2D" unique_id=543650113]
 position = Vector2(25, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1937133221]
+shape = SubResource("RectangleShape2D_q631a")
 
 [node name="Timer" type="Timer" parent="." unique_id=63954017]
 wait_time = 0.2
