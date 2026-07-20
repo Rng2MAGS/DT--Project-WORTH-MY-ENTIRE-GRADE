@@ -95,10 +95,10 @@ bullet_timer = NodePath("Timer")
 player_health = NodePath("ProgressBar")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1051990565]
-offset_left = 36.0
-offset_top = -207.0
-offset_right = 240.0
-offset_bottom = -180.0
+offset_left = -188.0
+offset_top = -211.0
+offset_right = 16.0
+offset_bottom = -184.0
 theme_override_styles/background = SubResource("StyleBoxFlat_03b2l")
 theme_override_styles/fill = SubResource("StyleBoxFlat_q631a")
 max_value = 5.0

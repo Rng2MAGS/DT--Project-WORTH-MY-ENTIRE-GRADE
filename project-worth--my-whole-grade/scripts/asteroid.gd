@@ -4,18 +4,16 @@ extends CharacterBody2D
 
 @export var player: CharacterBody2D
 @export var asteroid: CharacterBody2D
+
 const speed = 300.0
 var health: int = 100
 var damage: int = 20
+var asteroid_scene: PackedScene
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(_delta: float) -> void:
-	pass
+	var asteroid = asteroid_scene.instantiate()
 
 func take_damage() -> void:
 	if health > 0:
