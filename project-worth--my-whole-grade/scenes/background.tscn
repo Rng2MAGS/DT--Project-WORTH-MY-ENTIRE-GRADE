@@ -16,8 +16,16 @@ bg_color = Color(1.2032688e-06, 0.6172051, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cbsqf"]
 bg_color = Color(0.7834323, 3.706068e-06, 6.738305e-07, 1)
 
-[node name="Node2D" type="Node2D" unique_id=402681183 groups=["level"]]
+[sub_resource type="Curve2D" id="Curve2D_jougr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1093, -232, 0, 0, 0, 0, 773, -312, 0, 0, 0, 0, 164, -290, 0, 0, 0, 0, -143, -379, 0, 0, 0, 0, -272, -201, 0, 0, 0, 0, -423, 21, 0, 0, 0, 0, -388, 190, 0, 0, 0, 0, -392, 484, 0, 0, 0, 0, -365, 577, 0, 0, 0, 0, -254, 649)
+}
+point_count = 10
+
+[node name="Node2D" type="Node2D" unique_id=402681183 node_paths=PackedStringArray("spawn_point") groups=["level"]]
 script = ExtResource("1_jougr")
+spawn_point = NodePath("Path2D/PathFollow2D")
+asteroid_scene = ExtResource("2_y0upk")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=268071946]
 offset_right = 1152.0
@@ -30,7 +38,7 @@ position = Vector2(322, 229)
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1488988286]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1442427637]
-position = Vector2(-43, 313)
+position = Vector2(1222, 1062.5)
 shape = SubResource("RectangleShape2D_oabld")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=997709513]
@@ -38,7 +46,7 @@ position = Vector2(1195, 303)
 shape = SubResource("RectangleShape2D_oabld")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=2130236711]
-position = Vector2(572.25, -36.5)
+position = Vector2(1837.25, 713)
 shape = SubResource("RectangleShape2D_bkp1e")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=684646247]
@@ -52,11 +60,28 @@ offset_bottom = 648.0
 
 [node name="CharacterBody2D2" parent="." unique_id=1234631901 instance=ExtResource("2_y0upk")]
 position = Vector2(766, 152)
+asteroid_scene = ExtResource("2_y0upk")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=88092859]
-offset_right = 185.0
-offset_bottom = 27.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 195.0
+offset_bottom = 37.0
 theme_override_styles/background = SubResource("StyleBoxFlat_jougr")
 theme_override_styles/fill = SubResource("StyleBoxFlat_cbsqf")
 max_value = 20.0
 show_percentage = false
+
+[node name="Timer" type="Timer" parent="." unique_id=22291314]
+autostart = true
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1329140860]
+position = Vector2(369, 227)
+scale = Vector2(0.5890501, 0.5933852)
+curve = SubResource("Curve2D_jougr")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1299663231]
+position = Vector2(1093, -232)
+rotation = -2.896614
+
+[connection signal="timeout" from="Timer" to="." method="_spawn_asteroid"]

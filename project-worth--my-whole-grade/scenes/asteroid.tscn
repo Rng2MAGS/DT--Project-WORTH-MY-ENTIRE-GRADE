@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b6ajvrgrtgnny"]
 
 [ext_resource type="Script" uid="uid://blfnii2yshklg" path="res://scripts/asteroid.gd" id="1_akfqu"]
-[ext_resource type="PackedScene" uid="uid://dydpswsiefbxk" path="res://scenes/ship.tscn" id="2_6mo6b"]
+[ext_resource type="PackedScene" uid="uid://sst2oleuhsov" path="res://scenes/ship.tscn" id="2_6mo6b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0md28"]
 size = Vector2(24, 24)
@@ -9,10 +9,12 @@ size = Vector2(24, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d0c22"]
 size = Vector2(32, 32)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1234631901 groups=["asteroid"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1234631901 node_paths=PackedStringArray("asteroid", "pivot") groups=["asteroid"]]
 script = ExtResource("1_akfqu")
 player = ExtResource("2_6mo6b")
+asteroid = NodePath(".")
 asteroid_scene = null
+pivot = NodePath("Node2D")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2099132891]
 offset_left = -12.0
@@ -28,5 +30,9 @@ shape = SubResource("RectangleShape2D_0md28")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=333603966]
 shape = SubResource("RectangleShape2D_d0c22")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=574354979]
+
+[node name="Marker2D" type="Marker2D" parent="Node2D" unique_id=327885851]
 
 [connection signal="body_entered" from="Area2D" to="." method="_player_dmg"]

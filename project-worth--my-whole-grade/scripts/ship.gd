@@ -4,7 +4,7 @@ extends CharacterBody2D
 var speed = 500.0
 var health: int = 5
 var can_shoot: bool = true
-var bullet_speed: int = 600
+var bullet_speed: int = 400
 
 
 @export var pivot: Node2D

@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var player: PackedScene
 @export var asteroid: CharacterBody2D
 @export var asteroid_scene: PackedScene
+@export var pivot: Node2D
+
 
 const speed = 300.0
 var health: int = 100
@@ -16,6 +18,8 @@ var damage: int = 20
 func _ready() -> void:
 	for node in get_tree().get_nodes_in_group("ship"):
 		ship = node
+	
+		
 
 func take_damage() -> void:
 	if health > 0:
