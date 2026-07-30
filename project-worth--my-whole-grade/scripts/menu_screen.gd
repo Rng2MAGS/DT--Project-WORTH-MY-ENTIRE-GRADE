@@ -7,7 +7,7 @@ func _play() -> void:
 
 
 func _settings() -> void:
-		get_tree().call_deferred("change_scene_to_file", "res://scenes/background.tscn")
+		get_tree().call_deferred("change_scene_to_file", "res://scenes/settings.tscn")
 
 
 func _quit_game() -> void:

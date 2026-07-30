@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bjhokq7vmeirh"]
 
-[ext_resource type="PackedScene" uid="uid://dydpswsiefbxk" path="res://scenes/ship.tscn" id="1_bkp1e"]
+[ext_resource type="PackedScene" uid="uid://sst2oleuhsov" path="res://scenes/ship.tscn" id="1_bkp1e"]
 [ext_resource type="Script" uid="uid://cnpqikrqqvvb5" path="res://scripts/background.gd" id="1_jougr"]
 [ext_resource type="PackedScene" uid="uid://b6ajvrgrtgnny" path="res://scenes/asteroid.tscn" id="2_y0upk"]
 
@@ -9,6 +9,12 @@ size = Vector2(65.375, 725.375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bkp1e"]
 size = Vector2(1188.5, 53)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jougr"]
+bg_color = Color(1.2032688e-06, 0.6172051, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cbsqf"]
+bg_color = Color(0.7834323, 3.706068e-06, 6.738305e-07, 1)
 
 [node name="Node2D" type="Node2D" unique_id=402681183 groups=["level"]]
 script = ExtResource("1_jougr")
@@ -46,3 +52,11 @@ offset_bottom = 648.0
 
 [node name="CharacterBody2D2" parent="." unique_id=1234631901 instance=ExtResource("2_y0upk")]
 position = Vector2(766, 152)
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=88092859]
+offset_right = 185.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_jougr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cbsqf")
+max_value = 20.0
+show_percentage = false
