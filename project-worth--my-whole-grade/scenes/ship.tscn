@@ -6,13 +6,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q631a"]
 size = Vector2(40, 40)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1860692798 node_paths=PackedStringArray("pivot", "bullet_spawn", "bullet_timer") groups=["Ship"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1860692798 node_paths=PackedStringArray("pivot", "bullet_spawn", "bullet_timer", "player_health") groups=["Ship"]]
 motion_mode = 1
 script = ExtResource("1_q631a")
 pivot = NodePath("Node2D")
 bullet_spawn = NodePath("Node2D/Marker2D")
 bullet_scene = ExtResource("2_2gnfn")
 bullet_timer = NodePath("Timer")
+player_health = NodePath("ProgressBar")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=975228800]
 
@@ -31,5 +32,11 @@ shape = SubResource("RectangleShape2D_q631a")
 
 [node name="Timer" type="Timer" parent="." unique_id=63954017]
 wait_time = 0.2
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=435496565]
+offset_right = 4.0
+offset_bottom = 27.0
+max_value = 5.0
+step = 1.0
 
 [connection signal="timeout" from="Timer" to="." method="_bullet_timer"]

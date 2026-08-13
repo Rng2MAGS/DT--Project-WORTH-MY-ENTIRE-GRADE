@@ -2,10 +2,11 @@ extends CharacterBody2D
 
 
 var speed = 500.0
-var health: int = 5
+var health: int = 20
 var can_shoot: bool = true
 var bullet_speed: int = 400
-
+var damage = 1
+var dead: int = 0
 
 @export var pivot: Node2D
 @export var bullet_spawn: Marker2D
@@ -24,6 +25,11 @@ func _physics_process(_delta: float) -> void:
 	velocity = speed * direction.normalized()
 	
 	pivot.look_at(get_global_mouse_position())
+	
+	if Input .is_action_pressed("ui_esc"):
+		Engine.time_scale = 0
+		
+
 	
 	if Input .is_action_pressed("ui_shoot") and can_shoot:
 		_shooting()
@@ -45,11 +51,11 @@ func _shooting() -> void:
 	bullet_timer.start()
 
 func take_damage() -> void:
-	if health > 0:
-		health -= 1
+	if health > dead:
+		health =- damage
 		player_health.value = health
-	else:
-		get_tree().call_deferred("reload_current_scene")
+	elif health <= dead:
+		get_tree().call_deferred("change_scene_to_file" , "res://scenes/main_menu.tscn")
 	
 	
 	
