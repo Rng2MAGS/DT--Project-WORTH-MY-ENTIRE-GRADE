@@ -23,6 +23,7 @@ text = "Sound"
 
 [node name="Button2" type="Button" parent="PanelContainer/VBoxContainer" unique_id=544671737]
 layout_mode = 2
+text = "Difficulty: Easy"
 
 [node name="Button3" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1833903087]
 layout_mode = 2
@@ -34,4 +35,5 @@ layout_mode = 2
 layout_mode = 2
 text = "Back to menu"
 
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Button2" to="." method="_diffuculty"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Back to game" to="." method="_on_back_to_game_pressed"]

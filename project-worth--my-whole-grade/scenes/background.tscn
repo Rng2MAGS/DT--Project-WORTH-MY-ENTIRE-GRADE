@@ -6,10 +6,10 @@
 [ext_resource type="Script" uid="uid://c4lb05wrlp5i1" path="res://scenes/pause_menu.gd" id="4_cbsqf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oabld"]
-size = Vector2(65.375, 725.375)
+size = Vector2(65.375, 1438.6875)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bkp1e"]
-size = Vector2(1188.5, 53)
+size = Vector2(2227.625, 101.5)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jougr"]
 bg_color = Color(1.2032688e-06, 0.6172051, 0, 1)
@@ -19,9 +19,9 @@ bg_color = Color(0.7834323, 3.706068e-06, 6.738305e-07, 1)
 
 [sub_resource type="Curve2D" id="Curve2D_jougr"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1093, -232, 0, 0, 0, 0, 773, -312, 0, 0, 0, 0, 164, -290, 0, 0, 0, 0, -143, -379, 0, 0, 0, 0, -272, -201, 0, 0, 0, 0, -423, 21, 0, 0, 0, 0, -388, 190, 0, 0, 0, 0, -392, 484, 0, 0, 0, 0, -365, 577, 0, 0, 0, 0, -254, 649)
+"points": PackedVector2Array(0, 0, 0, 0, 1090.1106, -240.39323, 0, 0, 0, 0, 773, -312, 0, 0, 0, 0, 164, -290, 0, 0, 0, 0, -143, -379, 0, 0, 0, 0, -272, -201, 0, 0, 0, 0, -423, 21, 0, 0, 0, 0, -388, 190, 0, 0, 0, 0, -392, 484, 0, 0, 0, 0, -365, 577, 0, 0, 0, 0, -254, 649, 0, 0, 0, 0, -272.74832, 833.80896, 0, 0, 0, 0, -171.61745, 918.1281, 0, 0, 0, 0, 104.80696, 1002.4472, 0, 0, 0, 0, 397.60495, 956.24493, 0, 0, 0, 0, 564.23004, 1025.5482, 0, 0, 0, 0, 697.14496, 931.9888, 0, 0, 0, 0, 903.2593, 1025.5482, 0, 0, 0, 0, 1078.5529, 890.40674, 0, 0, 0, 0, 1276.9619, 1011.6876, 0, 0, 0, 0, 1402.1716, 833.80896, 0, 0, 0, 0, 1269.2567, 600.4877, 0, 0, 0, 0, 1413.7295, 540.42474, 0, 0, 0, 0, 1440.6976, 301.32813, 0, 0, 0, 0, 1308.746, 193.90788, 0, 0, 0, 0, 1440.6976, 40.285423, 0, 0, 0, 0, 1343.4194, -216.13704, 0, 0, 0, 0, 1090.1106, -240.39323)
 }
-point_count = 10
+point_count = 27
 
 [node name="Node2D" type="Node2D" unique_id=402681183 node_paths=PackedStringArray("spawn_point") groups=["level"]]
 script = ExtResource("1_jougr")
@@ -34,24 +34,24 @@ offset_bottom = 648.0
 color = Color(0.09923177, 0.09923177, 0.09923177, 1)
 
 [node name="CharacterBody2D" parent="." unique_id=1860692798 instance=ExtResource("1_bkp1e")]
-position = Vector2(322, 229)
+position = Vector2(577, 419)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1488988286]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1442427637]
-position = Vector2(1222, 1062.5)
+position = Vector2(-553, 330)
 shape = SubResource("RectangleShape2D_oabld")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=997709513]
-position = Vector2(1195, 303)
+position = Vector2(1652, 292)
 shape = SubResource("RectangleShape2D_oabld")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=2130236711]
-position = Vector2(1837.25, 713)
+position = Vector2(543, -431)
 shape = SubResource("RectangleShape2D_bkp1e")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=684646247]
-position = Vector2(580, 685)
+position = Vector2(546, 936)
 shape = SubResource("RectangleShape2D_bkp1e")
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=1814719394]
@@ -60,7 +60,7 @@ offset_right = 118.0
 offset_bottom = 648.0
 
 [node name="CharacterBody2D2" parent="." unique_id=1234631901 instance=ExtResource("2_y0upk")]
-position = Vector2(766, 152)
+position = Vector2(746, -139)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1155463290]
 
@@ -75,18 +75,20 @@ max_value = 20.0
 show_percentage = false
 
 [node name="Timer" type="Timer" parent="." unique_id=22291314]
+wait_time = 5.0
 autostart = true
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1329140860]
-position = Vector2(369, 227)
-scale = Vector2(0.5890501, 0.5933852)
+position = Vector2(-37.81672, -26.877459)
+scale = Vector2(1.0382586, 0.8657588)
 curve = SubResource("Curve2D_jougr")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1299663231]
-position = Vector2(1093, -232)
-rotation = -2.896614
+position = Vector2(1090.1106, -240.39323)
+rotation = -2.9195073
 
-[node name="Control" type="Control" parent="." unique_id=1570785290]
+[node name="Control" type="Control" parent="." unique_id=1570785290 node_paths=PackedStringArray("pause_cooldown")]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -3.0517578e-05
@@ -94,6 +96,7 @@ offset_top = -1.5258789e-05
 offset_right = 1152.0
 offset_bottom = 648.0
 script = ExtResource("4_cbsqf")
+pause_cooldown = NodePath("Timer")
 
 [node name="PanelContainer" type="PanelContainer" parent="Control" unique_id=726632795]
 layout_mode = 1
@@ -116,5 +119,11 @@ vertical_icon_alignment = 0
 layout_mode = 2
 text = "Quit game"
 
+[node name="Timer" type="Timer" parent="Control" unique_id=1283943662]
+wait_time = 0.2
+autostart = true
+ignore_time_scale = true
+
 [connection signal="timeout" from="Timer" to="." method="_spawn_asteroid"]
 [connection signal="pressed" from="Control/PanelContainer/VBoxContainer/Button" to="Control" method="_on_button_pressed"]
+[connection signal="timeout" from="Control/Timer" to="Control" method="_pause_cooldown"]

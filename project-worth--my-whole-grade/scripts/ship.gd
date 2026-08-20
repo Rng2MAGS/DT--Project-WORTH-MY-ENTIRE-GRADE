@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 var speed = 500.0
-var health: int = 20
+var health: int = 10
 var can_shoot: bool = true
 var bullet_speed: int = 400
 var damage = 1
@@ -25,9 +25,6 @@ func _physics_process(_delta: float) -> void:
 	velocity = speed * direction.normalized()
 	
 	pivot.look_at(get_global_mouse_position())
-	
-	if Input .is_action_pressed("ui_esc"):
-		Engine.time_scale = 0
 		
 
 	
@@ -52,8 +49,10 @@ func _shooting() -> void:
 
 func take_damage() -> void:
 	if health > dead:
-		health =- damage
+		health -= damage
 		player_health.value = health
+		if health <= dead:
+			get_tree().call_deferred("change_scene_to_file" , "res://scenes/main_menu.tscn")
 	elif health <= dead:
 		get_tree().call_deferred("change_scene_to_file" , "res://scenes/main_menu.tscn")
 	

@@ -11,19 +11,3 @@ func _spawn_asteroid() -> void:
 	var asteroid = asteroid_scene.instantiate()
 	asteroid.global_position = spawn_point.global_position
 	add_child(asteroid)
-
-
-
-func A() -> void:
-	if Input .is_action_pressed("ui_esc") and pause_menu.visible == false:
-		pause_menu.visible = true
-	elif Input .is_action_pressed("ui_esc") and pause_menu.visible == true:
-		visible = false
-		
-		
-
-
-func _on_button_pressed() -> void:
-	visible = false
-	
-	

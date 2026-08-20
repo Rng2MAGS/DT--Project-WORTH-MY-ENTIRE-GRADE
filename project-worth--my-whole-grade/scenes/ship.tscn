@@ -6,6 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q631a"]
 size = Vector2(40, 40)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2gnfn"]
+bg_color = Color(0.8163972, 1.5883148e-06, 1.347661e-06, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4tobq"]
+bg_color = Color(0, 0.7826358, 0, 1)
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1860692798 node_paths=PackedStringArray("pivot", "bullet_spawn", "bullet_timer", "player_health") groups=["Ship"]]
 motion_mode = 1
 script = ExtResource("1_q631a")
@@ -34,9 +40,15 @@ shape = SubResource("RectangleShape2D_q631a")
 wait_time = 0.2
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=435496565]
-offset_right = 4.0
-offset_bottom = 27.0
-max_value = 5.0
+offset_left = -74.0
+offset_top = 77.0
+offset_right = 74.0
+offset_bottom = 104.0
+theme_override_styles/background = SubResource("StyleBoxFlat_2gnfn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4tobq")
+max_value = 10.0
 step = 1.0
+value = 10.0
+show_percentage = false
 
 [connection signal="timeout" from="Timer" to="." method="_bullet_timer"]
