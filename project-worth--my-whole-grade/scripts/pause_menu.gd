@@ -2,6 +2,8 @@ extends Control
 
 var can_pause = true
 @export var pause_cooldown: Timer
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -17,7 +19,8 @@ func _process(_delta: float) -> void:
 		Engine.time_scale = 1
 		can_pause = false
 		pause_cooldown.start()
-
+		
+		
 
 func _on_button_pressed() -> void:
 	visible = false

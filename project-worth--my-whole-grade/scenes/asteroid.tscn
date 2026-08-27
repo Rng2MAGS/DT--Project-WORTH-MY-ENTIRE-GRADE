@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b6ajvrgrtgnny"]
 
 [ext_resource type="Script" uid="uid://blfnii2yshklg" path="res://scripts/asteroid.gd" id="1_akfqu"]
-[ext_resource type="Texture2D" uid="uid://d2t1w5a4u0x14" path="res://scenes/asteroid2.png" id="3_t4se3"]
+[ext_resource type="Texture2D" uid="uid://dp3aue4m7t7fx" path="res://visuals/asteroid/asteroid2.png" id="2_6mo6b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0md28"]
 size = Vector2(56, 56)
@@ -26,9 +26,12 @@ shape = SubResource("RectangleShape2D_d0c22")
 
 [node name="Marker2D" type="Marker2D" parent="Node2D" unique_id=327885851]
 
-[node name="Asteroid2" type="Sprite2D" parent="." unique_id=254215796]
+[node name="Asteroid2" type="Sprite2D" parent="Node2D" unique_id=459277669]
+scale = Vector2(2, 2)
+texture = ExtResource("2_6mo6b")
+
+[node name="Node2D2" type="Node2D" parent="." unique_id=241641882]
 position = Vector2(80, 64)
 scale = Vector2(2.2, 2.2)
-texture = ExtResource("3_t4se3")
 
 [connection signal="body_entered" from="Area2D" to="." method="_player_dmg"]

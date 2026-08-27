@@ -2,15 +2,16 @@
 
 [ext_resource type="Script" uid="uid://bpj2r6u7o2d4d" path="res://scripts/ship.gd" id="1_q631a"]
 [ext_resource type="PackedScene" uid="uid://dtsvyufeqn2qv" path="res://scenes/bullet.tscn" id="2_2gnfn"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q631a"]
-size = Vector2(40, 40)
+[ext_resource type="Texture2D" uid="uid://be5m80oqwmwgd" path="res://visuals/basic ship.png" id="3_4tobq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2gnfn"]
 bg_color = Color(0.8163972, 1.5883148e-06, 1.347661e-06, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4tobq"]
 bg_color = Color(0, 0.7826358, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q631a"]
+size = Vector2(40, 40)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1860692798 node_paths=PackedStringArray("pivot", "bullet_spawn", "bullet_timer", "player_health") groups=["Ship"]]
 motion_mode = 1
@@ -23,18 +24,14 @@ player_health = NodePath("ProgressBar")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=975228800]
 
-[node name="ColorRect" type="ColorRect" parent="Node2D" unique_id=1006057726]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-metadata/_edit_use_anchors_ = true
-
 [node name="Marker2D" type="Marker2D" parent="Node2D" unique_id=543650113]
 position = Vector2(25, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1937133221]
-shape = SubResource("RectangleShape2D_q631a")
+[node name="BasicShip" type="Sprite2D" parent="Node2D" unique_id=1185972204]
+position = Vector2(-4, 0)
+rotation = 1.5707964
+scale = Vector2(2, 2)
+texture = ExtResource("3_4tobq")
 
 [node name="Timer" type="Timer" parent="." unique_id=63954017]
 wait_time = 0.2
@@ -50,5 +47,8 @@ max_value = 10.0
 step = 1.0
 value = 10.0
 show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1937133221]
+shape = SubResource("RectangleShape2D_q631a")
 
 [connection signal="timeout" from="Timer" to="." method="_bullet_timer"]
