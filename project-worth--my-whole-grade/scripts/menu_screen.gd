@@ -1,7 +1,7 @@
 extends Control
 func _ready() -> void:
 	global.money += global.score/global.score_to_money_conversion_rate
-
+	global.score = global.reset
 func _play() -> void:
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/background.tscn")
 

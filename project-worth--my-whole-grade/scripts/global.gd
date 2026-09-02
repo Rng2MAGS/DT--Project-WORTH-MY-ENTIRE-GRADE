@@ -1,5 +1,6 @@
 extends Node
 
+const reset:int = 0
 const score_to_money_conversion_rate:int = 2
 var score: int = 0
 var money: int = 0
