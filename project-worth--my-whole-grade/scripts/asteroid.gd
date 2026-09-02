@@ -4,7 +4,6 @@ extends CharacterBody2D
 @export var asteroid: CharacterBody2D
 @export var asteroid_scene: PackedScene
 @export var pivot: Node2D
-@export var score: int = 0
 
 signal integer_changed(new_value: int)
 const dead = 0
@@ -35,7 +34,7 @@ func take_damage() -> void:
 		queue_free()	
 		
 func died() -> void:
-	score += kill_value
+	global.score += kill_value
 	
 func _player_dmg(ship: CharacterBody2D) -> void:
 	ship.take_damage()

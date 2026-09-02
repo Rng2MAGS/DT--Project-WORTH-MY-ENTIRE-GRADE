@@ -29,3 +29,8 @@ func _on_button_pressed() -> void:
 
 func _pause_cooldown() -> void:
 	can_pause = true
+
+
+func _quit_to_menu() -> void:
+	Engine.time_scale = 1
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/main_menu.tscn")

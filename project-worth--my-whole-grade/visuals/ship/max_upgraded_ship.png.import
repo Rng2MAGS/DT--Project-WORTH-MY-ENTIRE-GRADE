@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cay6elrwc7u7f"
-path="res://.godot/imported/max_upgraded_ship.png-85cb2b3093790fdfb67dc610d9017d0a.ctex"
+path="res://.godot/imported/max_upgraded_ship.png-5c9fea500b2cf80f23237c20cfbef20a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://visuals/max_upgraded_ship.png"
-dest_files=["res://.godot/imported/max_upgraded_ship.png-85cb2b3093790fdfb67dc610d9017d0a.ctex"]
+source_file="res://visuals/ship/max_upgraded_ship.png"
+dest_files=["res://.godot/imported/max_upgraded_ship.png-5c9fea500b2cf80f23237c20cfbef20a.ctex"]
 
 [params]
 

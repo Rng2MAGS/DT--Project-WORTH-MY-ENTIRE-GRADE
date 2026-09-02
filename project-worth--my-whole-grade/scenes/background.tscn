@@ -35,7 +35,7 @@ position = Vector2(577, 419)
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1488988286]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1442427637]
-position = Vector2(-553, 330)
+position = Vector2(-456, 330)
 shape = SubResource("RectangleShape2D_oabld")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=997709513]
@@ -50,14 +50,6 @@ shape = SubResource("RectangleShape2D_bkp1e")
 position = Vector2(546, 936)
 shape = SubResource("RectangleShape2D_bkp1e")
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=1814719394]
-offset_top = 581.0
-offset_right = 118.0
-offset_bottom = 648.0
-
-[node name="CharacterBody2D2" parent="." unique_id=1234631901 instance=ExtResource("2_y0upk")]
-position = Vector2(746, -139)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1155463290]
 
 [node name="Timer" type="Timer" parent="." unique_id=22291314]
@@ -65,7 +57,7 @@ wait_time = 5.0
 autostart = true
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1329140860]
-position = Vector2(-37.81672, -26.877459)
+position = Vector2(43, -21)
 scale = Vector2(1.0382586, 0.8657588)
 curve = SubResource("Curve2D_jougr")
 
@@ -119,4 +111,5 @@ theme_override_font_sizes/font_size = 32
 
 [connection signal="timeout" from="Timer" to="." method="_spawn_asteroid"]
 [connection signal="pressed" from="Control/PanelContainer/VBoxContainer/Button" to="Control" method="_on_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/VBoxContainer/Button2" to="Control" method="_quit_to_menu"]
 [connection signal="timeout" from="Control/Timer" to="Control" method="_pause_cooldown"]

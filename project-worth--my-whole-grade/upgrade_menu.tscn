@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cse2orcwl2gds"]
+
+[node name="Control" type="Control" unique_id=1605440995]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=750347073]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -132.0
+offset_right = -128.0
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1239543791]
+layout_mode = 2
+
+[node name="Speed" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1952800624]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Speed"
+
+[node name="Health" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1668341655]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Health"
+
+[node name="Damage" type="Button" parent="PanelContainer/VBoxContainer" unique_id=34796414]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Damage"
+
+[node name="Fire rate" type="Button" parent="PanelContainer/VBoxContainer" unique_id=172124194]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Fire Rate"
+
+[node name="Back to menu" type="Button" parent="PanelContainer/VBoxContainer" unique_id=989229411]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Back to menu
+"

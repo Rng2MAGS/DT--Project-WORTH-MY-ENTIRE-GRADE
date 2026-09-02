@@ -26,6 +26,10 @@ layout_mode = 2
 text = "Play"
 icon_alignment = 1
 
+[node name="Upgrade" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1375310076]
+layout_mode = 2
+text = "Upgrade"
+
 [node name="Settings" type="Button" parent="PanelContainer/VBoxContainer" unique_id=356437428]
 layout_mode = 2
 text = "Settings"
@@ -37,5 +41,6 @@ text = "Quit Game"
 icon_alignment = 1
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Start" to="." method="_play"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Upgrade" to="." method="_upgrade"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Settings" to="." method="_settings"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="." method="_quit_game"]
