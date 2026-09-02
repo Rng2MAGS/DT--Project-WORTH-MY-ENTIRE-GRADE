@@ -5,7 +5,6 @@ extends CharacterBody2D
 @export var asteroid_scene: PackedScene
 @export var pivot: Node2D
 
-signal integer_changed(new_value: int)
 const dead = 0
 const speed = 300.0
 var kill_value: int = 10

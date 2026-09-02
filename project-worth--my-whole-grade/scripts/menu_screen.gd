@@ -1,12 +1,13 @@
 extends Control
-
+func _ready() -> void:
+	global.money += global.score/global.score_to_money_conversion_rate
 
 func _play() -> void:
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/background.tscn")
 
 
 func _upgrade() -> void:
-	pass # Replace with function body.
+		get_tree().call_deferred("change_scene_to_file", "res://scenes/upgrade_menu.tscn")
 
 
 

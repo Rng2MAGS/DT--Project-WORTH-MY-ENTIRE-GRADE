@@ -6,10 +6,10 @@ extends Node2D
 @export var asteroid_scene: PackedScene
 @export var score_display: Label
 var kill_value:int = 10
-
+var reset:int = 0
 
 func _ready() -> void:
-	pass
+	global.score = reset
 
 func _process(_delta: float) -> void:
 	score_display.text = str(global.score)

@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://cse2orcwl2gds"]
 
-[node name="Control" type="Control" unique_id=1605440995]
+[ext_resource type="Script" uid="uid://b4gegqnfs40k0" path="res://scripts/upgrade_menu.gd" id="1_e3qxy"]
+
+[node name="Control" type="Control" unique_id=1605440995 node_paths=PackedStringArray("money_display")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
+script = ExtResource("1_e3qxy")
+money_display = NodePath("Label")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=750347073]
 layout_mode = 1
@@ -48,3 +52,18 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Back to menu
 "
+
+[node name="Label" type="Label" parent="." unique_id=69680027]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 112.0
+offset_right = 448.0
+offset_bottom = 160.0
+theme_override_font_sizes/font_size = 30
+vertical_alignment = 1
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Speed" to="." method="_speed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Health" to="." method="_health"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Damage" to="." method="_damage"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Fire rate" to="." method="_fire_rate"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Back to menu" to="." method="_back_to_menu"]
