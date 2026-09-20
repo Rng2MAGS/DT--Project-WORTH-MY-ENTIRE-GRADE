@@ -2,13 +2,17 @@
 
 [ext_resource type="Script" uid="uid://b4gegqnfs40k0" path="res://scripts/upgrade_menu.gd" id="1_e3qxy"]
 
-[node name="Control" type="Control" unique_id=1605440995 node_paths=PackedStringArray("money_display")]
+[node name="Control" type="Control" unique_id=1605440995 node_paths=PackedStringArray("money_display", "speed_text", "health_text", "damage_text", "fire_rate_text")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 script = ExtResource("1_e3qxy")
 money_display = NodePath("Label")
+speed_text = NodePath("PanelContainer/VBoxContainer/Speed")
+health_text = NodePath("PanelContainer/VBoxContainer/Health")
+damage_text = NodePath("PanelContainer/VBoxContainer/Damage")
+fire_rate_text = NodePath("PanelContainer/VBoxContainer/Fire rate")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=750347073]
 layout_mode = 1

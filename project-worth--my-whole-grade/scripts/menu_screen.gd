@@ -1,5 +1,6 @@
 extends Control
 func _ready() -> void:
+	@warning_ignore("integer_division")
 	global.money += global.score/global.score_to_money_conversion_rate
 	global.score = global.reset
 func _play() -> void:

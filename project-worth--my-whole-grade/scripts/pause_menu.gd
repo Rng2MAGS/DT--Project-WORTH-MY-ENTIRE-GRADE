@@ -9,12 +9,12 @@ func _ready() -> void:
 	pass
 	
 func _process(_delta: float) -> void:
-	if Input .is_action_pressed("ui_e") and visible == false and can_pause == true:
+	if Input .is_action_pressed("ui_pause") and visible == false and can_pause == true:
 		visible = true
 		Engine.time_scale = 0
 		can_pause = false
 		pause_cooldown.start()
-	elif Input .is_action_pressed("ui_e") and visible == true and can_pause == true:
+	elif Input .is_action_pressed("ui_pause") and visible == true and can_pause == true:
 		visible = false
 		Engine.time_scale = 1
 		can_pause = false

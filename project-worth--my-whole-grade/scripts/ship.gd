@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
 
-var speed = 500.0
-var health: int = 10
+var speed = 500 * global.speed_multi
+var health: int = 10 * global.health_multi
 var can_shoot: bool = true
 var bullet_speed: int = 400
-var damage = 1
+var damage = global.damage_multi
 var dead: int = 0
 
 @export var pivot: Node2D
@@ -16,6 +16,8 @@ var dead: int = 0
 
 
 func _physics_process(_delta: float) -> void:
+	player_health.max_value = health
+	bullet_timer.wait_time = bullet_timer.wait_time / global.fire_rate_multi
 	# Define direction
 	var direction: Vector2 = Vector2(0.0, 0.0)
 	# Get input direction and set the characters' velocity
