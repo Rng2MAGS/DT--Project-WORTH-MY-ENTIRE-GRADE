@@ -53,7 +53,7 @@ shape = SubResource("RectangleShape2D_bkp1e")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1155463290]
 
 [node name="Timer" type="Timer" parent="." unique_id=22291314]
-wait_time = 5.0
+wait_time = 2.0
 autostart = true
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1329140860]
