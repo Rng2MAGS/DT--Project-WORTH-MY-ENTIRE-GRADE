@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 var speed = 500 * global.speed_multi
-var health: int = 10 * global.health_multi
+var health: float = 10 * global.health_multi
 var can_shoot: bool = true
 var bullet_speed: int = 400
 var damage = global.damage_multi
@@ -57,11 +57,6 @@ func take_damage() -> void:
 			get_tree().call_deferred("change_scene_to_file" , "res://scenes/main_menu.tscn")
 	elif health <= dead:
 		get_tree().call_deferred("change_scene_to_file" , "res://scenes/main_menu.tscn")
-	
-	
-	
-	
-	
 	
 	
 	
