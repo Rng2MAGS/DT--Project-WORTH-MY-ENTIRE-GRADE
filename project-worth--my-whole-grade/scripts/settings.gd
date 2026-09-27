@@ -3,10 +3,10 @@ extends Control
 #Difficulty modes
 
 @export var difficulty_text: Button
-var easy:String = "Easy Mode"
-var normal:String = "Normal Mode"
-var hard:String = "Hard Mode"
+var level_of_difficulty: int = 0
 
+var text = [
+	"Difficulty: Easy Mode", "Difficulty: Normal Mode", "Difficulty: Hard Mode"]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -21,16 +21,14 @@ func _process(_delta: float) -> void:
 func _on_back_to_game_pressed() -> void:
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/main_menu.tscn")
 
-func _when_settings_opened() -> void:
-	difficulty_text.text = "Difficulty: Easy Mode"
-
 func _diffuculty() -> void:
 	global.difficulty_button_value += 1
+	level_of_difficulty += 1
 	if global.difficulty_button_value == 4:
 		global.difficulty_button_value = 1
 	if global.difficulty_button_value == 1:
-		difficulty_text.text = "Difficulty: " + easy
+		difficulty_text.text = text[0]
 	if global.difficulty_button_value == 2:
-		difficulty_text.text = "Difficulty: " + normal
+		difficulty_text.text = text[1]
 	if global.difficulty_button_value == 3:
-		difficulty_text.text = "Difficulty: " + hard
+		difficulty_text.text = text[2]

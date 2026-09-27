@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cse2orcwl2gds"]
 
 [ext_resource type="Script" uid="uid://b4gegqnfs40k0" path="res://scripts/upgrade_menu.gd" id="1_e3qxy"]
+[ext_resource type="Script" uid="uid://bpj2r6u7o2d4d" path="res://scripts/ship.gd" id="2_ksfom"]
 
 [node name="Control" type="Control" unique_id=1605440995 node_paths=PackedStringArray("money_display", "speed_text", "health_text", "damage_text", "fire_rate_text")]
 layout_mode = 3
@@ -13,6 +14,7 @@ speed_text = NodePath("PanelContainer/VBoxContainer/Speed")
 health_text = NodePath("PanelContainer/VBoxContainer/Health")
 damage_text = NodePath("PanelContainer/VBoxContainer/Damage")
 fire_rate_text = NodePath("PanelContainer/VBoxContainer/Fire rate")
+ship = ExtResource("2_ksfom")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=750347073]
 layout_mode = 1

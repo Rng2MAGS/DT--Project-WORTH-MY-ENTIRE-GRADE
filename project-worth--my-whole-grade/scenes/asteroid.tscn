@@ -12,6 +12,7 @@ size = Vector2(80, 80)
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1234631901 node_paths=PackedStringArray("asteroid", "pivot") groups=["asteroid"]]
 script = ExtResource("1_akfqu")
 asteroid = NodePath(".")
+asteroid_scene = null
 pivot = NodePath("Node2D")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1658437851]

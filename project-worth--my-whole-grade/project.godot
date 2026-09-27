@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 
 global="*uid://5i6vtjk4l5w2"
 settings="*uid://dwghpy1b6r7t0"
-ship="*uid://bpj2r6u7o2d4d"
 
 [global_group]
 

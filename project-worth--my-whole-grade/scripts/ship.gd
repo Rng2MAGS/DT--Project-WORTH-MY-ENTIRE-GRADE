@@ -42,15 +42,15 @@ func _shooting() -> void:
 	can_shoot = false
 	bullet_timer.start()
 
+#Function run when an asteroid collides with the player
 func take_damage() -> void:
-	player_health.max_value = health
-	if health > dead:
-		health -= damage
-		player_health.value = health
-		if health <= dead:
-			get_tree().call_deferred("change_scene_to_file" , "res://scenes/main_menu.tscn")
-	elif health <= dead:
-		get_tree().call_deferred("change_scene_to_file" , "res://scenes/main_menu.tscn")
-	
-	
-	
+	player_health.max_value = health #Sets the max value for the health bar to the value of health
+	if health > dead: #Checking if the player is dead before dealing more damage
+		health -= damage #Damaging the player
+		player_health.value = health #Updating the value of the health bar
+	elif health <= dead: #Checks if the player has died
+		get_tree().call_deferred("change_scene_to_file" , "res://scenes/main_menu.tscn") #Sends the player to the menu after dying
+
+func _upgrades_updating() -> void:
+	bullet_timer.wait_time = ((bullet_timer.wait_time + global.fire_rate_multi)/ global.fire_rate_multi) - 1
+		

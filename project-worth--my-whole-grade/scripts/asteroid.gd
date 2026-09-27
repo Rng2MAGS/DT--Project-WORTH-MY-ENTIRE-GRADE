@@ -32,11 +32,9 @@ func take_damage() -> void:
 	elif health <= dead:
 		died()
 		queue_free()	
-		
+
 func died() -> void:
 	global.score += kill_value
-	
-	
-@warning_ignore("shadowed_variable")
-func _player_dmg(ship: CharacterBody2D) -> void:
-	ship.take_damage()
+
+func _player_dmg(body: CharacterBody2D) -> void:
+	body.take_damage()
