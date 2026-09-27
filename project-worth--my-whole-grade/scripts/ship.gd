@@ -2,10 +2,10 @@ extends CharacterBody2D
 
 
 var speed = 500 * global.speed_multi
-var health: float = 10 * global.health_multi
+var health: float = 10 + global.health_multi
 var can_shoot: bool = true
 var bullet_speed: int = 400
-var damage = global.damage_multi
+var damage = global.difficulty
 var dead: int = 0
 
 @export var pivot: Node2D
@@ -14,21 +14,16 @@ var dead: int = 0
 @export var bullet_timer: Timer
 @export var player_health: ProgressBar
 
-
 func _physics_process(_delta: float) -> void:
-	player_health.max_value = health
-	bullet_timer.wait_time = bullet_timer.wait_time / global.fire_rate_multi
 	# Define direction
 	var direction: Vector2 = Vector2(0.0, 0.0)
 	# Get input direction and set the characters' velocity
 	direction.x = Input.get_axis("ui_player_left","ui_player_right")
 	direction.y = Input.get_axis("ui_player_up","ui_player_down")
-		#Prevent excess speed
+	#Prevent excess speed
 	velocity = speed * direction.normalized()
 	
 	pivot.look_at(get_global_mouse_position())
-		
-
 	
 	if Input .is_action_pressed("ui_shoot") and can_shoot:
 		_shooting()
@@ -39,8 +34,6 @@ func _physics_process(_delta: float) -> void:
 func _bullet_timer() -> void:
 	can_shoot = true
 	
-	
-	
 func _shooting() -> void:
 	var bullet = bullet_scene.instantiate()
 	bullet.rotation = pivot.rotation
@@ -50,6 +43,7 @@ func _shooting() -> void:
 	bullet_timer.start()
 
 func take_damage() -> void:
+	player_health.max_value = health
 	if health > dead:
 		health -= damage
 		player_health.value = health

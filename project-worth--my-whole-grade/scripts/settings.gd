@@ -3,8 +3,9 @@ extends Control
 #Difficulty modes
 
 @export var difficulty_text: Button
-
-
+var easy:String = "Easy Mode"
+var normal:String = "Normal Mode"
+var hard:String = "Hard Mode"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,8 +29,8 @@ func _diffuculty() -> void:
 	if global.difficulty_button_value == 4:
 		global.difficulty_button_value = 1
 	if global.difficulty_button_value == 1:
-		difficulty_text.text = "Difficulty: Easy Mode"
+		difficulty_text.text = "Difficulty: " + easy
 	if global.difficulty_button_value == 2:
-		difficulty_text.text = "Difficulty: Normal Mode"
+		difficulty_text.text = "Difficulty: " + normal
 	if global.difficulty_button_value == 3:
-		difficulty_text.text = "Difficulty: Hard Mode"
+		difficulty_text.text = "Difficulty: " + hard

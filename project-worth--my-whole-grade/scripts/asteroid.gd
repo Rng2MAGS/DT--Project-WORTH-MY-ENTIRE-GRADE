@@ -11,7 +11,7 @@ var speed = 300 * global.difficulty
 var kill_value: float = 8 * global.difficulty
 var health: float = 4 * global.difficulty
 var ship: CharacterBody2D
-var damage: float = global.difficulty
+var damage: float = global.damage_multi
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,7 +34,6 @@ func take_damage() -> void:
 		queue_free()	
 		
 func died() -> void:
-	@warning_ignore("narrowing_conversion")
 	global.score += kill_value
 	
 	

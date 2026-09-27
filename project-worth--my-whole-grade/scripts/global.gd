@@ -4,8 +4,8 @@ const reset:int = 0
 
 #Variables for money/score
 const score_to_money_conversion_rate:int = 2
-var score: int = 0
-var money: int = 0
+var score = 0
+var money = 0
 
 #Variables used to alter difficulty
 const easy: float = .75
