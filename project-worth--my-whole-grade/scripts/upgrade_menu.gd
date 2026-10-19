@@ -52,7 +52,7 @@ func _fire_rate() -> void:
 		global.num_fire_rate_upgrds += upgrade_increase_margin
 		global.fire_rate_multi = global.num_fire_rate_upgrds
 		fire_rate_text.text = "Fire Rate: $"+str(upgrade_price * global.num_fire_rate_upgrds)
-		ship._updating_upgrades()
+		ship._upgrades_updating()
 
 func _back_to_menu() -> void:
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/main_menu.tscn")
